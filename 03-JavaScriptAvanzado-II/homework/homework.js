@@ -117,8 +117,8 @@ function getNombre() {
   dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
 */
 
-let getNombreInstructor;
-let getNombreAlumno;
+let getNombreInstructor = getNombre.bind(instructor);
+let getNombreAlumno = getNombre.bind(alumno);
 
 /*
   Ejercicio 4
@@ -135,9 +135,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos;
-let textoGuiones;
-let textoUnderscore;
+let textoAsteriscos = crearCadena.bind(null, '*', '*');
+let textoGuiones = crearCadena.bind(null, '-', '-');
+let textoUnderscore= crearCadena.bind(null, '_', '_');
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
