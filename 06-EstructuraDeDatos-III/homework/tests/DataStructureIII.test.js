@@ -90,7 +90,7 @@ expect(tree.size()).toBe(3);
     tree.depthFirstForEach(function(val){ testArr.push(val); });
     expect(testArr).toEqual([ 0, 1, 5, 11, 12, 13, 14, 15, 17, 20, 21, 25, 28, 30, 31, 33, 34, 35, 45, 50 ]);
     testArr = [];
-    tree.depthFirstForEach(function(val){ testArr.push(val); }, 'in-order');
+    tree.depthFirstForEach(function(val){ testArr.push(val); } , 'in-order');
     expect(testArr).toEqual([ 0, 1, 5, 11, 12, 13, 14, 15, 17, 20, 21, 25, 28, 30, 31, 33, 34, 35, 45, 50 ]);
   });
 
