@@ -10,22 +10,22 @@ function quickSort(array) {
   if(array.length <= 1) return array;
   
   var pivot = array[Math.floor(Math.random() * array.length)];
-  var leftSide = [];
+  var leftArray = [];
   var equals = [];
-  var rightSide = [];
+  var rightArray = [];
 
   for(let i = 0; i < array.length; i++){
     if(array[i] < pivot){
-      leftSide.push(array[i])
+      leftArray.push(array[i])
     } 
     else if (array[i] === pivot){
       equals.push(array[i])
     }
     else {
-      rightSide.push(array[i])
+      rightArray.push(array[i])
     }
   }
-  return quickSort(leftSide).concat(equals).concat(quickSort(rightSide));
+  return quickSort(leftArray).concat(equals).concat(quickSort(rightArray));
 }
 
 function mergeSort(array) {
@@ -34,6 +34,32 @@ function mergeSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
+  if(array.length === 1) return array;
+
+  var half = Math.floor(array.length / 2);
+  var leftArray = array.slice(0, half);
+  var rightArray = array.slice(half);
+
+  return merge(mergeSort(leftArray), mergeSort(rightArray))
+
+}
+
+function merge(leftArray, rightArray){
+  var left = 0;
+  var right = 0;
+  var mergeArray = [];
+
+  while(left < leftArray.length && right < rightArray.length){
+    if(leftArray[left] < rightArray[right]){
+      mergeArray.push(leftArray[left])
+      left++;
+    } 
+    else {
+      mergeArray.push(rightArray[right])
+      right++;
+    }
+  }
+  return mergeArray.concat(leftArray.slice(left)).concat(rightArray.slice(right));
 }
 
 // No modificar nada debajo de esta línea
